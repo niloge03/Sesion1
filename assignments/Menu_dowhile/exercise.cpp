@@ -9,28 +9,64 @@ using namespace std;
     mostrarnos la tabla de grados celsius - farenheit de -20, -15, -10, -5, 0, 5, 10, 15, 20
 Una vez que acabes tus funciones, usa el menú de la función main para llamar a las funciones*/
 
+float imc(float altura, float peso) {
+    return peso / (altura * altura);
+}
+
+string tipoTriangulo(float lado1, float lado2, float lado3) {
+    if (lado1 == lado2 && lado2 == lado3) {
+        return "Equilátero";
+    } else if (lado1 == lado2 || lado2 == lado3 || lado1 == lado3) {
+        return "Isósceles";
+    } else {
+        return "Escaleno";
+    }
+}
+
+void temp(float t1, float incremento, float t2) {
+    cout << "Celsius\tFahrenheit" << endl;
+    for (int i = t1; i <= t2; i += incremento) {
+        float F = i * 9.0 / 5.0 + 32.0;
+        cout << i << "\t" << F << endl;
+    }
+}
+
 int main() 
 {
     char opc;
     do{
         system("clear");
         cout << "Menu de opciones:" << endl;
-        cout << "\t1. Opcion 1"<< endl;
-        cout << "\t2. Opcion 2"<< endl;
-        cout << "\t3. Opcion 3"<< endl;
+        cout << "\t1. calculo de masa corporal"<< endl;
+        cout << "\t2. tipo de triangulo"<< endl;
+        cout << "\t3. celcius a farenheit"<< endl;
         cout << "\t4. Salir"<< endl;
         cout << "Opcion: ";
         cin >> opc;
         switch(opc){
-            case '1':
-                cout << "Abre opcion 1" << endl;
+            case '1': {
+                float altura, peso;
+                cout << "Su altura en m: ";
+                cin >> altura;
+                cout << "Su peso en kg: ";
+                cin >> peso;
+                cout << "Su IMC es: " << imc(altura, peso) << endl;
                 break;
-            case '2':
-                cout << "Abre opcion 2" << endl;
+            }
+           case '2': {
+                float lado1, lado2, lado3;
+                cout << "ingrese los 3 lados: ";
+                cin >> lado1>>lado2>>lado3; 
+                cout << "el tipo de riangulo es: " << tipoTriangulo(lado1, lado2, lado3) << endl;
                 break;
-            case '3':
-                cout << "Abre opcion 3" << endl;
+            }
+             case '3': {
+                float t1, incremento, t2;
+                cout << "ingrese la temperatura inicial, el incremento y la temperatura final (en celcius): ";
+                cin >> t1>>incremento>>t2; 
+                temp(t1, incremento, t2);
                 break;
+            }
             case '4':
                 cout << "....Saliendo...." << endl;
                 break;
