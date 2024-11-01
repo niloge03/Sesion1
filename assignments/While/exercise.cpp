@@ -23,4 +23,4 @@ int main()
   int resultado = sumaMenoresA100(); // Llamar a la función y guardar el resultado
   cout << "La suma de los números menores a 100 es: " << resultado << endl;
 }
-//
+////
